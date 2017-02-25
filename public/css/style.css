@@ -23,7 +23,7 @@ body {
 	background-color:#fff;
 }
 
-hi,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6 {
 	color:#000;
 	line-height:1.1em;
 }
@@ -110,15 +110,26 @@ a:hover {
 .nav-tabs > li.active > a:focus {
   color: #fff;
   cursor: default;
-  background-color: #6D9C91;
+  /*background-color: #6D9C91;*/
+  background-color: #DCAE1D;
   border: 0;
   border-bottom-color: transparent;
   cursor:pointer;  
 }
 
 /*===========================
-  slider
+  slider and jumbotron
 ============================ */
+
+#jumbo {
+    /* IE8 and below */
+    background: rgb(200, 54, 54);
+    /* all other browsers */
+    background: rgba(200, 54, 54, 0.5);
+}
+#white {
+    background: rgb(255, 255, 255)
+}
 .slider {
 	position: relative;	
 	margin-top:-20px;
@@ -137,7 +148,8 @@ a:hover {
 }
 
 #carousel-slider .carousel-indicators li {
-  border: 1px solid #ffbd20;
+  /*border: 1px solid #ffbd20;*/
+  border: 1px solid #DCAE1D;
 }
 
 #carousel-slider a i {
@@ -148,16 +160,19 @@ a:hover {
 	position: absolute;
 	top: 50%;
 	width: 50px;
-	color:#6d9c91;
-	background:#6d9c91;
+	color:#DCAE1D;
+	background:#DCAE1D;
+	/*background:#6d9c91;*/
 	color:#fff;
 }
 
 #carousel-slider a i:hover {
-	background:#6d9c91;
+	background: #DCAE1D;
+	/*background:#6d9c91;*/
 	color:#fff;
-	border: 1px solid #6d9c91;
-}
+	/*border: 1px solid #6d9c91;*/
+	border: 1px solid #DCAE1D;
+}	
 
 #carousel-slider 
 .carousel-control {
@@ -202,7 +217,8 @@ a:hover {
 	margin-bottom:20px;
 	color:#fff;
 	padding:10px;
-	background:#6d9c91;
+	background: #DCAE1D;
+	/************************background:#6d9c91;******************************/ 
 }
 
 @media (max-width: 767px) {
@@ -217,7 +233,8 @@ a:hover {
 .carousel-inner .form-inline .form-group button[type="livedemo"]{
 	padding:20px 60px;
 	font-size:20px;
-	background:#6d9c91;
+	background: #DCAE1D;
+	/*background:#6d9c91;*/
 	color:#fff;
 	border-radius:0;
 	border-color:#fff;
@@ -608,7 +625,8 @@ address br {
 }
 
 .sub-footer {
-	 background-color: #6D9C91;
+	
+	background-color: #6D9C91;
 }
 ul.social-network {
 	list-style:none;
