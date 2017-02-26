@@ -61,7 +61,7 @@ a:hover {
 	padding: 20px;
 	font-size: 30px;
 	margin-top:-15px;
-	color:#6D9C91;		
+	color:#f7b733;		
 }
 .navbar-brand h1:hover {
   background-color:#fff;
@@ -99,8 +99,8 @@ a:hover {
 }
 
 .nav-tabs > li > a:hover {
-  border-color: #eee #eee #6D9C91;
-  color: #6D9C91;
+  border-color: #eee #eee #f7b733;
+  color: #f7b733;
   border-radius:0;
   background-color:#f9f9f9;
   
@@ -110,8 +110,8 @@ a:hover {
 .nav-tabs > li.active > a:focus {
   color: #fff;
   cursor: default;
-  /*background-color: #6D9C91;*/
-  background-color: #DCAE1D;
+  /*background-color:#f7b733*/
+  background-color: #f7b733
   border: 0;
   border-bottom-color: transparent;
   cursor:pointer;  
@@ -123,12 +123,12 @@ a:hover {
 
 #jumbo {
     /* IE8 and below */
-    background: rgb(200, 54, 54);
+    background: rgb(0, 0, 0);
     /* all other browsers */
-    background: rgba(200, 54, 54, 0.5);
+    background: rgba(0, 0, 0, 0.35);
 }
 #white {
-    background: rgb(255, 255, 255)
+    background: rgb(247, 183, 51);
 }
 .slider {
 	position: relative;	
@@ -149,7 +149,7 @@ a:hover {
 
 #carousel-slider .carousel-indicators li {
   /*border: 1px solid #ffbd20;*/
-  border: 1px solid #DCAE1D;
+  border: 1px solid #f7b733
 }
 
 #carousel-slider a i {
@@ -160,18 +160,15 @@ a:hover {
 	position: absolute;
 	top: 50%;
 	width: 50px;
-	color:#DCAE1D;
-	background:#DCAE1D;
-	/*background:#6d9c91;*/
+	color:#f7b733
+	background:#f7b733
 	color:#fff;
 }
 
 #carousel-slider a i:hover {
-	background: #DCAE1D;
-	/*background:#6d9c91;*/
+	background: #f7b733
 	color:#fff;
-	/*border: 1px solid #6d9c91;*/
-	border: 1px solid #DCAE1D;
+	border: 1px solid #f7b733
 }	
 
 #carousel-slider 
@@ -217,8 +214,8 @@ a:hover {
 	margin-bottom:20px;
 	color:#fff;
 	padding:10px;
-	background: #DCAE1D;
-	/************************background:#6d9c91;******************************/ 
+	background: #f7b733
+	/************************background:#f7b733;******************************/ 
 }
 
 @media (max-width: 767px) {
@@ -233,8 +230,7 @@ a:hover {
 .carousel-inner .form-inline .form-group button[type="livedemo"]{
 	padding:20px 60px;
 	font-size:20px;
-	background: #DCAE1D;
-	/*background:#6d9c91;*/
+	background: #f7b733
 	color:#fff;
 	border-radius:0;
 	border-color:#fff;
@@ -262,7 +258,7 @@ a:hover {
 .carousel-inner .form-inline .form-group button[type="getnow"]:hover {
 	color:#fff;
 	border-color:#fff;
-	background:#6d9c91;
+	background:#f7b733;
 	-webkit-transition: color 300ms, background-color 300ms;
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
@@ -280,7 +276,7 @@ a:hover {
 	
 }
 .content  span {
-	color:#6D9C91;
+	color:#f7b733;
 	text-transform:uppercase;
 
 }
@@ -294,7 +290,7 @@ a:hover {
 	
 }
 .breadcrumb h4 {
-	color:#6D9C91;
+	color:#f7b733;
 	text-transform:uppercase;
 	text-align:center;
 	font-size:20px;
@@ -305,7 +301,7 @@ a:hover {
 	padding:30px;	
 }
 .breadcrumbs h4 {
-	color:#6D9C91;
+	color:#f7b733;
 	text-transform:uppercase;
 	text-align:center;
 	font-size:20px;
@@ -344,7 +340,7 @@ a:hover {
 }
 .align-center:hover {
 	border-bottom: 30px solid transparent;
-	border-color:#6D9C91;
+	border-color:#f7b733;
 	margin-top:-5px;
 	-webkit-box-shadow: 1px 2px 2px 4px rgba(204,204,204,1);
 -moz-box-shadow: 1px 2px 2px 4px rgba(204,204,204,1);
@@ -357,11 +353,11 @@ box-shadow: 1px 2px 2px 4px rgba(204,204,204,1);
 .icon {
 	margin-top:30px;
 	margin-bottom:30px;
-	color:#6D9C91;
+	color:#f7b733;
 }
 
 .ficon i {
-	color:#6D9C91;
+	color:#f7b733;
 }
 /* --- Feature --- */
 .feature {
@@ -404,11 +400,11 @@ box-shadow: 1px 2px 2px 4px rgba(204,204,204,1);
 	
 	background-color:#eee;
 	border-color:#eee;
-	color:#6D9C91;
+	color:#f7b733;
 }
 .list-group-item.active:hover {
-	background-color:#6D9C91;
-	border-color:#6D9C91;
+	background-color:#f7b733;
+	border-color:#f7b733;
 }
 .list-group-item.active p.list-group-item-text {
 	color:#000;
@@ -493,7 +489,7 @@ box-shadow: 1px 2px 2px 4px rgba(204,204,204,1);
 }
 .panel-default > .panel-heading {
   color: #fff;
-  background-color: #6D9C91;
+  background-color:#f7b733
   border-color: #eee;
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
@@ -537,7 +533,7 @@ box-shadow: 1px 2px 2px 4px rgba(204,204,204,1);
   color:#000;
 }
 .popular-tags h5 {
-	color:#6D9C91;
+	color:#f7b733;
 	margin-bottom:30px;
 	text-align:center;
 }
@@ -560,7 +556,7 @@ box-shadow: 1px 2px 2px 4px rgba(204,204,204,1);
 .popular-tags ul.tags li a:hover {
 	text-decoration:none;
 	color:#fff;
-	background-color:#6D9C91;
+	background-color:#f7b733;
 }
 
 /* --- Contact area --- */
@@ -569,11 +565,11 @@ form {
 	margin-bottom:50px;
 }
 label {
-	color:#6D9C91;
+	color:#f7b733;
 	font-size:14px;
 }
 .form-group button {
-	background-color:#6D9C91;
+	background-color:#f7b733;
 	color:#fff;
 }
 .form-control {	
@@ -626,7 +622,7 @@ address br {
 
 .sub-footer {
 	
-	background-color: #6D9C91;
+	background-color:#f7b733
 }
 ul.social-network {
 	list-style:none;
