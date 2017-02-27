@@ -2,11 +2,11 @@ module.exports = function(sequelize, DataTypes){
 var userService = sequelize.define("userService", {
 
 
-userId:{
-  type: DataTypes.INTEGER
-  , allowNull: false
+// userId:{
+//   type: DataTypes.INTEGER
+//   , allowNull: false
 
-},
+// },
 description: {
     type: DataTypes.STRING
     , allowNull: false,
@@ -18,10 +18,7 @@ discount: {
     type: DataTypes.BOOLEAN
     , allowNull: false
   }
-}, {
-  timestamps: false
-
-},
+}, 
 {
       // We're saying that we want our Author to have Posts
       classMethods: {
@@ -42,8 +39,11 @@ discount: {
             }
           });
         }
-      }
-    }
+      },
+  
+  timestamps: false
+
+}
 
 
 

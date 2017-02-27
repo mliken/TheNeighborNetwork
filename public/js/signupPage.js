@@ -53,25 +53,7 @@ $("#checkUsername").on("click", function(){
 });
 	$("#createProfile").on("click", function(){
 
-		if(validateUserInput() === true){
-
-		console.log("hey0")
-		var phoneObj ={ phone: $("#phone").val().trim()};
-		console.log("hey1");
-
-		$.post("/requestSms", phoneObj, function(data){
-
-			console.log("hey"+ data);
-
-			if(data){
-				if(data.success){
-			
-
-		$("#matchedResult").modal();
-		
-		$("#tokenVerification").on("click", function(){
-		
-			var newUser = {
+		var newUser = {
 				userName: $("#userName").val().trim(),
 				password: $("#password").val().trim(),
 				firstName: $("#firstName").val().trim(),
@@ -79,19 +61,64 @@ $("#checkUsername").on("click", function(){
 				address_2: $("#address_2").val().trim(),
 				city: $("#city").val().trim(),
 				state: $("#state").val().trim(),
+				zipCode: $("#zipCode").val().trim(),
 				country: $("#country").val().trim(),
 				phone: $("#phone").val().trim(),
 				email: $("#email").val().trim(),
-				token: $("#token").val().trim()
-				}
+				token: ""			
+			}
+
+
+		if(validateUserInput() === true){
+
+		var phoneObj ={ phone: $("#phone").val().trim()};
+	
+
+		$.post("/requestSms", phoneObj, function(data){
+
+			//if sms successfully sent!
+		
+			if(data){
+
+				console.log("inside if data" + (data));
+
+				if(data.success){
+
+					console.log("inside if data.success" + (data.success));
+			
+
+		$("#token").val("");
+		$("#isRightPhone").empty();
+
+		$("#verifyPhoneToken").modal();
+
+		
+
+		
+		$("#tokenVerification").on("click", function(){
+
+			newUser.token = $("#token").val().trim();
+			
+			console.log("afrer token" + newUser);
 
 			$.post("/createProfile", newUser, function(data){
+				console.log("/createProfile");
 
-				if(data.error){
+				newUser={};
+
+				console.log("beofre if");
+
+				console.log(data);
+
+				if((data)&&(data.error)){
+					console.log("GOT ERROR");
 
 					$("#isRightPhone").html(data.error);
+				}else{
+					console.log("before window");
+					window.location = data;
 				}
-						
+				console.log("outside");		
 			});
 
 		});
@@ -99,7 +126,7 @@ $("#checkUsername").on("click", function(){
 		//if 200
 		else{
 			//if the sms was not sent successfully
-			$("#isRightInput").html("The phone Number you entered needs to be a 10 digits cell phone");
+			$("#isRightInput").html(data.error);
 		}
 	}
 
@@ -126,9 +153,9 @@ $("#checkUsername").on("click", function(){
 					
 					$("#loginResult").html(data.error);
 
-				};
-
-
+				} else {
+					window.location = data;
+				}
 						
 			});	
 

@@ -23,4 +23,3 @@ VALUE
 ("Pets"),
 ("Lessons"),
 ("Legal")
-
