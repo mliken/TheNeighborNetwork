@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Resi Bootstrap Template</title>
+    <title>The Neighbor Network</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/responsive-slider.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/animate.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link href="css/style.css" rel="stylesheet">	
+	<link href="css/style.css" rel="stylesheet">
+     <link href="css/navbar.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700i,800" rel="stylesheet">    
+  	
     <!-- =======================================================
         Theme Name: Resi
         Theme URL: https://bootstrapmade.com/resi-free-bootstrap-html-template/
@@ -21,38 +24,45 @@
   </head>
  <body>
     <header>
-		<div class="container">
-			<div class="row">
-				<nav class="navbar navbar-default" role="navigation">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<div class="navbar-brand">
-								<a href="/"><h1>Neighborhood Network</h1></a>
-							</div>
-						</div>
-						<div class="menu">
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation"><a href="/login">Login</a></li>
-								<li role="presentation"><a href="/signup">Sign Up</a></li>
-												
-							</ul>
-						</div>
-					</div>			
-				</nav>
-			</div>
-		</div>
-	</header>
+            <div class="example3">
+  <nav class="navbar navbar-static-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar3">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/"><img src="img/theNeighborNetwork.png" alt="Dispute Bills">
+        </a>
+      </div>
+      <div id="navbar3" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/login">LOGIN</a></li>
+          <li><a href="/signup">SIGN UP</a></li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+    <!--/.container-fluid -->
+  </nav>
+</div>
 
-	
-	<div class="container">
-		<div class="text-center"><h2>Sign Up</h1></div>
-		
+    </header>
+<br>
+
+    <div class="container">
+        <br>
+        
+         <h1 class="text-center" style="color: #f7b733">Sign Up</h1>
+        
 		<div class="col-lg-12">
            
             <form>
                 <div class="form-group">
                 <label><b>Username*</b></label>
-                <input type="text" name="userName" class="form-control userInput userNameInput" id="userName" placeholder="Username must be 5 - 8 characters" data-rule="minlen:5" data-msg="Please enter at least 5 chars" />
+                <input type="text" name="userName" class="form-control userInput userNameInput" id="userName" placeholder="Username must be 5 - 15 characters" data-rule="minlen:5" data-msg="Please enter at least 5 chars" />
                 <div class="validation"></div>
                 </div>
                 <!-- <div class="form-group">
@@ -69,13 +79,19 @@
                 </div> -->
             
                 <div class="form-group">
-                <label><b>Password*</b></label>
-                <input type="text" name="password" class="form-control userInput" id="password" placeholder="Password must be 5 - 8 characters" data-rule="minlen:5" data-msg="Please enter at least 5 chars" />
-                <div class="validation"></div>
+                    <label><b>Password*</b></label>
+                    <input type="password" name="password" class="form-control userInput" id="password" placeholder="Password must be at least 5 characters" data-rule="minlen:5" data-msg="Please enter at least 5 chars" />
+                    <div class="validation"></div>
                 </div>
- 				</form>
+                <!--These need to match before the user is allowed to proceed.-->
+                <div class="form-group">
+                    <label><b>Re-Type Password*</b></label>
+                    <input type="password" name="reTypePassword" class="form-control userInput" id="reTypePassword" placeholder="Make sure both password fields match" data-rule="minlen:5"/>
+                    <div class="validation"></div>
+                </div>
+            </form>
  				<div class="text-center" id="isUsernameAvailable"></div>
-
+                
                 <br>
 
                 <div class="text-center"><button id="checkUsername" type="submit" class="btn btn-default">Check Username Availability</button></div>
@@ -88,7 +104,7 @@
                 <div class="validation"></div>
                 </div>
 
-                <p class="text-center"> The below information will be used to find your neighbors. Your personal infomation below will not be available to other users.
+                <p class="text-center"> The information below will be used to find your neighbors. Your personal infomation below will not be available to other users.
 				</p>
 
                 <div class="form-group">
@@ -156,7 +172,7 @@
 			<div class="container">
 					<div class="col-lg-12">
 						<div class="copyright">
-							<p>&copy;The Neighbor Network</p>
+							<h3>&copy;The Neighbor Network</h3>
 							<p>&copy;Resi Theme - All right reserved.</p>
                             <div class="credits">
                                 <!-- 
@@ -182,7 +198,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modal-title"><strong>Verify Your Phone</strong></h2>
+            <h2 class="modal-title text-center"><strong>Verify Your Phone</strong></h2>
           </div>
           <div class="modal-body">
             

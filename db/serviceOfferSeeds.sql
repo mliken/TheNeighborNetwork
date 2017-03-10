@@ -1,5 +1,5 @@
-USE 
-INSERT INTO serviceOffer(serviceName)
+USE utilizedNeighbor_db;
+INSERT INTO serviceOffers(serviceName)
 VALUE
 ("Accounting / Finances"),
 ("Beauty"),
@@ -23,3 +23,4 @@ VALUE
 ("Pets"),
 ("Lessons"),
 ("Legal")
+

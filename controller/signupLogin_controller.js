@@ -2,15 +2,25 @@ var crypto = require('crypto');
 var db = require("../models");
 var geocode = require("../config/geoCode");
 
-var config = require('../config/authyConfig.js');
+
 var qs = require('qs');
 var request = require('request');
-var phoneReg = require('../public/lib/phone_verification')(config.API_KEY);
+
 var session = require('express-session');
 
 // https://github.com/seegno/authy-client
+
+var env       = process.env.NODE_ENV || 'development';
 const Client = require('authy-client').Client;
-const authy = new Client({key: config.API_KEY});
+if (env === "development"){
+    var config = require('../config/authyConfig.js');
+    var phoneReg = require('../public/lib/phone_verification')(config.API_KEY);
+    const authy = new Client({key: config.API_KEY});
+}else{
+    var phoneReg = require('../public/lib/phone_verification')(process.env.AUTHY_API_KEY);
+    const authy = new Client({key: process.env.AUTHY_API_KEY});
+
+}
 
 
 function hashPW(pwd) {
@@ -40,15 +50,15 @@ checkUserName : function(req, res){
                 console.log("user");
                 console.log(user);
 
-                if (user.userName == null || user.userName == undefined) {
+                if (user.length > 0) {
 
-                         res.json({error: "Username is Available!"});
                          
+                          res.json({error: "Username is not available! Please pick a new one!"});
               
                  }
-                else if (user){
+                else {
                     
-                    res.json({error: "Username is not available! Please pick a new one!"});
+                    res.json({error: "Username is Available!"});
                     
                 }
                         
@@ -112,8 +122,14 @@ requestPhoneVerification : function (req, res/*, phone*/) {
             if (err) {
                 console.log('error creating phone reg request', err);
                 // res.status(500).json(err);
+                if(err.error_code == '60023'){
+
+                    res.json({error: "Please re-enter your code and try again!"});
+
+                }else{
                 res.json({error: err.message});
                 // isSuccess = false;
+                }
             } else {
                 console.log('Success register phone API call: ', response);
                 // res.status(200).json(response);
@@ -159,6 +175,13 @@ verifyPhoneToken : function (req, res){
                     //             console.log(req.session);
                      
                      console.log(coordinate);
+
+                     if(coordinate == "Not Found"){
+
+                            res.json({error: "Please verify that your address is correct!"});
+
+
+                     }else{
                                 
                                  var coordinates = coordinate;
 
@@ -171,12 +194,6 @@ verifyPhoneToken : function (req, res){
 
                                         console.log("after created");
 
-                                        // console.log(req.session);
-                                        
-                                        // createSession(req, res, user);
-
-                                        // console.log(req.session.userId);
-
                                         res.send("/login");
                                         
                                      }else if (user.error) {
@@ -186,45 +203,14 @@ verifyPhoneToken : function (req, res){
                                      }
 
                           });
-                                
+                      }          
   
                     });
-
-
-                          // signupLogin.createNewProfile(req, res, function(user){
-                                
-                                
-                          //            if(!user.error){
-
-                          //               console.log("after created");
-
-                          //               // console.log(req.session);
-                                        
-                          //               // createSession(req, res, user);
-
-                          //               // console.log(req.session.userId);
-
-                          //               res.send("/login");
-                                        
-                          //            }else if (user.error) {
-                          //               console.log(user.error);
-                          //               res.json({error: user.error});
-                                        
-                          //            }
-
-                          // });
-
-                            // if (profileCreated){
-
-                            //     res.render("landing");
-
-                            //     res.status(200).json(response);
-                            // }
                                 
                         }else {
                         
                         console.log('Failed in Confirm Phone request body: ', response.message);
-                        res.json({error: response.message});
+                        res.json({error: response.message + ". Please try again."});
                         }
             }
         });
@@ -299,7 +285,7 @@ loggedIn : function(req, res){
             // if(user){
                 if (enteredPassword !== user.password)
                 {
-                    res.json({error: "Your username and password do not match!"});
+                    res.json({error: "The pasword you've entered is incorrect. Please try again."});
                 } else {
 
                     var currentUser = {
@@ -318,7 +304,7 @@ loggedIn : function(req, res){
 
                     console.log("res.session.user");
                     console.log(req.session.user);
-
+                    console.log(res.locals.user);
 
                     res.send('/landing');
 
@@ -334,7 +320,7 @@ loggedIn : function(req, res){
         // }
     }).catch(function(error){
         console.log(error);
-        res.json({error: "We are experiencing technical difficulty. Please try again..."});
+        res.json({error: "We are experiencing technical difficulties. Please try again."});
 
     });
     
@@ -343,15 +329,5 @@ loggedIn : function(req, res){
 
 }
 
-function createSession(req, res, user) {
-    req.session.regenerate(function () {
-        req.session.loggedIn = true;
-        req.session.userId = user.userId;
-        req.session.username = user.userName;
-        req.session.longitude = user.longitude;
-        req.session.latitude = user.latitude;
-        res.status(200).json();
-    });
-}
 
 module.exports = signupLogin;

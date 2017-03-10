@@ -2,32 +2,29 @@
 // Server.js - This file is the initial starting point for the Node/Express server.
 // *********************************************************************************
 
-
-/*
- *  STEPS TO SEQUELIZE THE STAR WARS APP.
- *  1. Delete the orm from config. In your app folder, create a model folder
- *     with a character.js file in the model
- *  2. In character.js, model out the character table, as detailed
- *     in the schema.sql file located in the root of this project directory.
- *  3. Remove all references to the old orm file,
- *     and replace it with character.js
- *  4. Use Sequelize methods in place of the orm calls
- *     to retrieve and insert data.
- *  5. Update connection.js to use sequelize instead of the mysql package.
- *
- * -/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/-/ */
-
-
 // Dependencies
+
 // =============================================================
+// var config = {
+//   apiKey: "AIzaSyDuq0aKWmRuaH8d9SqdOkjteVP0uNmuxf8",
+//   authDomain: "neighbornetwork-5a6c7.firebaseapp.com",
+//   databaseURL: "https://neighbornetwork-5a6c7.firebaseio.com",
+//   storageBucket: "neighbornetwork-5a6c7.appspot.com",
+//   messagingSenderId: "748426580419"
+// };
+// var admin = require("firebase-admin");
+// var serviceAccount = require("./neighbornetwork-5a6c7-firebase-adminsdk-gb6ax-cdb6f8c596.json");
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount),
+//   databaseURL: "https://neighbornetwork.firebaseio.com"
+// });
+
 var express = require("express");
 var bodyParser = require("body-parser");
 var db = require("./models");
 var methodOverride = require("method-override");
 // var cookieSession = require('cookie-session');
 var session = require('client-sessions');
-
-
 
 
 // =============================================================
@@ -95,6 +92,9 @@ require("./routes/searchRoutes.js")(app);
 require("./routes/addServiceRoutes.js")(app);
 require("./routes/profileRoutes.js")(app);
 require("./routes/messageRoutes.js")(app);
+require("./routes/ratingRoutes.js")(app);
+
+
 
 
 db.sequelize.sync({ force: false }).then(function() {

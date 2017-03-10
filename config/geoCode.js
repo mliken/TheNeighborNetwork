@@ -1,12 +1,13 @@
-//AJAX Call to google map API
-
-// installing request npm package to receive data from URL
 var request = require("request");
+var env       = process.env.NODE_ENV || 'development';
 
-var APIKeys = require("./keys.js");
+if (env === "development"){
+    var APIKeys = require("./keys.js");
+}
+
 
 // API key for google.
-var googleCred = APIKeys.keys.googleApi;
+var googleCred = process.env.googleApi || APIKeys.keys.googleApi;
 // URL where the request for geocoding is made
 var geoCodeURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 
@@ -16,7 +17,7 @@ var geoCodeURL = "https://maps.googleapis.com/maps/api/geocode/json?address=";
 
 var geocode = function(address, cb) {
 
-    var apiKey = APIKeys.keys.googleApi;
+    var apiKey = googleCred;
 
     // concatenate different parts of URL to make a query
     var url = geoCodeURL + address + "&key=" + apiKey;
@@ -28,15 +29,21 @@ var geocode = function(address, cb) {
         // convert the body to JSON. Body is a string originally
         var result = JSON.parse(body);
 
+        if(result.results == undefined || result.results.length == 0 ){
         // store the values in a variable
+        var coordinates = "Not Found";
+        // cb function helps storing the value outside the callback function
+        // for the request query.
+        cb(coordinates);
+    }else{
+
         var coordinates = {
             latitude: result.results[0].geometry.location.lat,
             longitude: result.results[0].geometry.location.lng
         }
 
-        // cb function helps storing the value outside the callback function
-        // for the request query.
         cb(coordinates);
+    }
 
     });   
 };
