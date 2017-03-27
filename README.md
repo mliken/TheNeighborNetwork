@@ -18,11 +18,11 @@ Our app allows you to search for neighbors based off a profession category picke
 ```
 
 
-###Getting Started
+### Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-###Prerequisities
+### Prerequisities
 
 What to install and how for local development and testing purposes
 
@@ -34,7 +34,7 @@ What to install and how for local development and testing purposes
 Running the tests
 
 
-###Built With
+### Built With
 
 ```
 -Sublime Text 
@@ -42,7 +42,7 @@ Running the tests
 -Heroku
 ```
 
-###Authors
+### Authors
 
 ```
 -Megan Liken
