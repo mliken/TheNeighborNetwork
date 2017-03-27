@@ -4,28 +4,23 @@ Neighbor Network
 
 Our app allows you to search for neighbors based off a profession category picker, allowing you to by-pass the clutter of social media networks. Also, our app allows you to add a service, so that you can provide to your neighbors. 
 
+#Technologies used
+
+-node.js
+-Express
+-Handblebars
+-MySql
+-Bootstrap
+-Firebase
+-Google Maps API
+-Twilio Authentication
 
 
-Screenshots
-
-
-Technologies used
-
-node.js
-Express
-Handblebars
-MySql
-Bootstrap
-Firebase
-Google Maps API
-Twilio Authentication
-
-
-Getting Started
+#Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-Prerequisities
+#Prerequisities
 
 What to install and how for local development and testing purposes
 
@@ -35,18 +30,18 @@ What to install and how for local development and testing purposes
 Running the tests
 
 
-Built With
+#Built With
 
-Sublime Text 
-MySQL
-Heroku
+-Sublime Text 
+-MySQL
+-Heroku
 
-Authors
+#Authors
 
-Megan Liken
-Kashan Ali Qazi
-Dylan Richard
-Chanita Nuansric
+-Megan Liken
+-Kashan Ali Qazi
+-Dylan Richard
+-Chanita Nuansric
 
 License
 
